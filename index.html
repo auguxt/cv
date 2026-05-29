@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>S. Syed Sameer — Detailed CV</title>
+  <meta name="description" content="Detailed Curriculum Vitae of S. Syed Sameer — Aspiring Cybersecurity Expert."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:#000;color:#fff;min-height:100vh;overflow-x:hidden;}
+canvas#star-bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;background:radial-gradient(circle at 30% 50%,#020202,#000);}
+
+/* LOGO */
+.logo-btn{position:absolute;top:18px;left:18px;width:80px;height:80px;background:transparent;border:none;cursor:pointer;border-radius:13px;z-index:1000;overflow:hidden;transition:transform .3s;}
+.logo-btn img{width:100%;height:100%;object-fit:contain;border-radius:13px;box-shadow:0 0 18px rgba(255,255,255,.22);transition:box-shadow .3s;}
+.logo-btn:hover{transform:scale(1.08);}
+.logo-btn:hover img{box-shadow:0 0 36px rgba(255,255,255,.38);}
+
+/* DOWNLOAD */
+.dl-btn{position:fixed;top:20px;right:20px;padding:9px 20px;background:rgba(0,255,255,.08);border:1px solid rgba(0,255,255,.3);border-radius:9px;color:#00ffff;font-family:'Poppins',sans-serif;font-size:.78rem;font-weight:600;text-decoration:none;z-index:1000;transition:background .3s,box-shadow .3s,transform .3s;letter-spacing:.4px;}
+.dl-btn:hover{background:rgba(0,255,255,.16);box-shadow:0 0 20px rgba(0,255,255,.4);transform:scale(1.04);}
+
+/* PAGE */
+.page{max-width:920px;margin:0 auto;padding:110px 22px 60px;}
+.back{display:inline-flex;align-items:center;gap:5px;color:#666;font-size:.75rem;text-decoration:none;margin-bottom:18px;transition:color .2s;}
+.back:hover{color:#00ffff;}
+
+/* HEADER */
+.cv-header{background:rgba(38,38,38,.78);border-radius:15px;box-shadow:0 0 28px rgba(0,255,255,.07);backdrop-filter:blur(8px);padding:32px 36px 24px;margin-bottom:22px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:18px;}
+.cv-header h1{font-size:2.4rem;font-weight:600;letter-spacing:-.5px;text-shadow:0 0 16px rgba(0,255,255,.22);}
+.cv-role{font-size:.68rem;letter-spacing:2.8px;text-transform:uppercase;color:#666;margin-top:5px;font-weight:400;}
+.cv-contacts{text-align:right;font-size:.72rem;color:#888;line-height:2.1;}
+.cv-contacts a{color:#888;text-decoration:none;transition:color .2s;}
+.cv-contacts a:hover{color:#00ffff;}
+
+/* DIVIDER */
+.top-rule{border:none;border-top:1.5px solid rgba(255,255,255,.15);margin:0 0 22px;}
+
+/* BODY GRID */
+.cv-body{display:grid;grid-template-columns:1fr 2fr;gap:18px;}
+
+/* CARD */
+.card{background:rgba(28,28,28,.88);border-radius:13px;padding:20px;box-shadow:0 0 18px rgba(0,0,0,.4);backdrop-filter:blur(5px);margin-bottom:16px;}
+.card:last-child{margin-bottom:0;}
+
+/* SECTION LABEL */
+.sec-label{font-size:.58rem;letter-spacing:2.2px;text-transform:uppercase;color:#00ffff;font-weight:600;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid rgba(0,255,255,.16);}
+
+/* SKILLS */
+.skill-group{margin-bottom:12px;}
+.skill-group:last-child{margin-bottom:0;}
+.skill-group-label{font-size:.72rem;font-weight:600;color:#ddd;margin-bottom:4px;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:5px;list-style:none;}
+.skill-tags li{background:rgba(0,255,255,.06);border:1px solid rgba(0,255,255,.18);border-radius:5px;padding:2px 9px;font-size:.65rem;color:#bbb;transition:box-shadow .25s,transform .25s;}
+.skill-tags li:hover{box-shadow:0 0 10px rgba(0,255,255,.28);transform:scale(1.06);}
+
+/* LANG */
+.lang-list{list-style:none;}
+.lang-list li{font-size:.75rem;color:#aaa;padding:3px 0;display:flex;align-items:center;gap:7px;}
+.lang-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:#00ffff;flex-shrink:0;}
+
+/* EDU */
+.edu-item{margin-bottom:12px;}
+.edu-item:last-child{margin-bottom:0;}
+.edu-degree{font-size:.78rem;font-weight:600;color:#eee;}
+.edu-school{font-size:.68rem;color:#888;margin-top:2px;}
+.edu-year{font-size:.64rem;color:#555;margin-top:1px;font-style:italic;}
+.edu-divider{border:none;border-top:1px solid rgba(255,255,255,.06);margin:9px 0;}
+
+/* ACTIVITY */
+.act-item{font-size:.72rem;color:#999;padding:3px 0;display:flex;align-items:flex-start;gap:7px;}
+.act-item::before{content:'–';color:rgba(0,255,255,.4);flex-shrink:0;}
+
+/* RIGHT */
+.right-block{margin-bottom:16px;}
+.right-block:last-child{margin-bottom:0;}
+.obj-text{font-size:.78rem;color:#aaa;line-height:1.75;}
+
+/* JOB */
+.job-title{font-size:.84rem;font-weight:600;color:#eee;}
+.job-meta{font-size:.68rem;color:#666;margin:2px 0 8px;font-style:italic;}
+.job-org{font-weight:300;color:#666;font-size:.75rem;}
+.job-bullets{list-style:none;}
+.job-bullets li{font-size:.73rem;color:#999;line-height:1.6;padding-left:13px;position:relative;margin-bottom:3px;}
+.job-bullets li::before{content:'—';position:absolute;left:0;color:rgba(0,255,255,.35);}
+
+/* PROJECTS */
+.proj-item{margin-bottom:11px;}
+.proj-item:last-child{margin-bottom:0;}
+.proj-name{font-size:.78rem;font-weight:600;color:#ddd;}
+.proj-name a{color:#ddd;text-decoration:none;transition:color .2s;}
+.proj-name a:hover{color:#00ffff;}
+.proj-name a::after{content:' ↗';font-size:.62rem;color:rgba(0,255,255,.45);}
+.proj-link{font-size:.62rem;color:#555;font-style:italic;margin:1px 0 3px;}
+.proj-desc{font-size:.7rem;color:#888;line-height:1.6;}
+.proj-div{border:none;border-top:1px solid rgba(255,255,255,.05);margin:9px 0;}
+
+/* CERTS */
+.cert-cat{font-size:.72rem;font-weight:600;color:#ccc;margin:10px 0 4px;}
+.cert-cat:first-child{margin-top:0;}
+.cert-list{list-style:none;}
+.cert-list li{font-size:.68rem;color:#888;padding:2px 0;display:flex;align-items:flex-start;gap:6px;border-bottom:1px solid rgba(255,255,255,.04);}
+.cert-list li:last-child{border-bottom:none;}
+.cert-list li::before{content:'🏅';font-size:.62rem;flex-shrink:0;margin-top:1px;}
+.cert-more{display:inline-block;margin-top:10px;font-size:.68rem;color:#00ffff;text-decoration:none;transition:text-shadow .2s;}
+.cert-more:hover{text-shadow:0 0 10px #00ffff;}
+
+/* PRINT */
+@media print{
+  canvas#star-bg,.logo-btn,.dl-btn,.back{display:none!important;}
+  body{background:#fff!important;color:#000!important;}
+  .card,.cv-header{background:#f8f8f8!important;box-shadow:none!important;border:1px solid #ddd;}
+  .sec-label{color:#1a6a9a!important;border-bottom-color:#ccc!important;}
+  .skill-tags li{border-color:#ccc!important;color:#333!important;}
+  .obj-text,.job-bullets li,.proj-desc,.cert-list li,.lang-list li,.act-item{color:#444!important;}
+  .cv-header h1{color:#000!important;text-shadow:none!important;}
+  a{color:#333!important;}
+}
+
+/* RESPONSIVE */
+@media(max-width:680px){
+  .cv-body{grid-template-columns:1fr;}
+  .cv-header{flex-direction:column;}
+  .cv-contacts{text-align:left;}
+  .cv-header h1{font-size:1.8rem;}
+  .dl-btn{bottom:16px;top:auto;right:14px;font-size:.72rem;padding:8px 14px;}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}canvas#star-bg{background:#000;}}
+  </style>
+</head>
+<body>
+<canvas id="star-bg" aria-hidden="true"></canvas>
+
+<button class="logo-btn" id="logo-btn" aria-label="Back to portfolio">
+  <img src="https://raw.githubusercontent.com/auguxt/auguxt.github.io/main/Logo_0.png" alt="Syed Sameer logo"/>
+</button>
+
+<a href="https://github.com/auguxt/auguxt.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true"
+   download target="_blank" rel="noopener" class="dl-btn" aria-label="Download CV PDF">⬇ Download CV</a>
+
+<div class="page">
+  <a href="https://auguxt.is-a.dev" class="back">← Back to Portfolio</a>
+
+  <!-- HEADER -->
+  <header class="cv-header">
+    <div>
+      <h1>S. Syed Sameer</h1>
+      <div class="cv-role">Aspiring Cybersecurity Expert · B.E. CSE (Cybersecurity) 2023–2027</div>
+    </div>
+    <div class="cv-contacts">
+      <div>+91-9840329368</div>
+      <div><a href="mailto:syedsameer.xtech@gmail.com">syedsameer.xtech@gmail.com</a></div>
+      <div>Chennai, 600097</div>
+      <div><a href="https://auguxt.is-a.dev" target="_blank">auguxt.is-a.dev</a></div>
+      <div><a href="https://linkedin.com/in/syedsameer-dev" target="_blank">linkedin.com/in/syedsameer-dev</a></div>
+      <div><a href="https://github.com/auguxt" target="_blank">github.com/auguxt</a></div>
+    </div>
+  </header>
+
+  <hr class="top-rule"/>
+
+  <div class="cv-body">
+    <!-- ── LEFT ── -->
+    <aside>
+
+      <div class="card">
+        <div class="sec-label">Skills</div>
+        <div class="skill-group">
+          <div class="skill-group-label">Programming</div>
+          <ul class="skill-tags"><li>Python</li><li>C</li><li>Java</li><li>JavaScript</li><li>SQL</li><li>HTML/CSS</li><li>Flask</li></ul>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Tools & Platforms</div>
+          <ul class="skill-tags"><li>GitHub</li><li>Linux</li><li>Wireshark</li><li>PostgreSQL</li><li>VS Code</li></ul>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Cybersecurity</div>
+          <ul class="skill-tags"><li>Packet Sniffing</li><li>Phishing Simulation</li><li>Cryptography</li><li>Network Monitoring</li><li>Threat Mitigation</li></ul>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Data & ML</div>
+          <ul class="skill-tags"><li>Machine Learning</li><li>Data Science</li><li>R</li><li>Computational Thinking</li></ul>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Cloud & Automation</div>
+          <ul class="skill-tags"><li>Cloud Computing</li><li>OS Fundamentals</li><li>RPA</li><li>Automation Anywhere</li></ul>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Soft Skills</div>
+          <ul class="skill-tags"><li>Documentation</li><li>Teamwork</li><li>Problem-Solving</li><li>Task Prioritization</li></ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="sec-label">Languages</div>
+        <ul class="lang-list">
+          <li>English</li>
+          <li>Hindi <span style="font-size:.65rem;color:#555;">(DBHP Praveen — Advanced)</span></li>
+          <li>Tamil</li>
+          <li>Urdu</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="sec-label">Education</div>
+        <div class="edu-item">
+          <div class="edu-degree">B.E. CSE (Cybersecurity)</div>
+          <div class="edu-school">Mohamed Sathak A.J. College of Engineering, Chennai</div>
+          <div class="edu-year">2023 – 2027 (Ongoing)</div>
+        </div>
+        <hr class="edu-divider"/>
+        <div class="edu-item">
+          <div class="edu-degree">HSC — Computer Science</div>
+          <div class="edu-school">Rajah Muthiah Hr. Sec. School, Mandaveli</div>
+          <div class="edu-year">Mar 2023</div>
+        </div>
+        <hr class="edu-divider"/>
+        <div class="edu-item">
+          <div class="edu-degree">SSLC</div>
+          <div class="edu-school">Nellai Nadar Matric. Hr. Sec. School, Kottivakkam</div>
+          <div class="edu-year">Mar 2021</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="sec-label">Activities & Achievements</div>
+        <div class="act-item">InspireAI — Campus Ambassador</div>
+        <div class="act-item">Swachh Bharat Seva Volunteer (MOI, 2023)</div>
+        <div class="act-item">DBHP Hindi Proficiency — 8 progressive levels (2013–2020)</div>
+        <div class="act-item">TN DTE Typewriting — English (2022)</div>
+        <div class="act-item">NCVET/ASDC — Electric Vehicle Technology</div>
+        <div class="act-item">OpenLearn (Open Univ. UK) — Climate Psychology (2025)</div>
+        <div class="act-item">Marketing — Free-to-Paid Conversion Badge</div>
+      </div>
+
+    </aside>
+
+    <!-- ── RIGHT ── -->
+    <main>
+
+      <div class="card right-block">
+        <div class="sec-label">Career Objective</div>
+        <p class="obj-text">Driven cybersecurity enthusiast with hands-on experience in ethical hacking, cryptography, network defense, and automation. Passionate about building security tools and understanding attack vectors. Seeking to contribute to security-focused teams, gain meaningful industry experience, and stay current with the rapidly evolving cybersecurity landscape.</p>
+      </div>
+
+      <div class="card right-block">
+        <div class="sec-label">Internship Experience</div>
+
+        <div style="margin-bottom:14px;">
+          <div class="job-title">Cybersecurity Intern <span class="job-org">— CodeAlpha (Virtual)</span></div>
+          <div class="job-meta">Feb 18 – Mar 18, 2025</div>
+          <ul class="job-bullets">
+            <li>Performed packet sniffing using Wireshark and conducted network traffic analysis.</li>
+            <li>Simulated phishing attacks and developed foundational threat detection strategies.</li>
+            <li>Gained practical exposure to real-world cyber threats and mitigation techniques.</li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <div class="job-title">Cybersecurity Intern <span class="job-org">— Codec Networks (Virtual)</span></div>
+          <div class="job-meta">2025</div>
+          <ul class="job-bullets">
+            <li>Worked on cybersecurity fundamentals, network security protocols, and threat analysis.</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="job-title">Cloud Computing Intern <span class="job-org">— Codec Networks (Virtual)</span></div>
+          <div class="job-meta">2025</div>
+          <ul class="job-bullets">
+            <li>Gained hands-on exposure to cloud infrastructure, deployment models, and security practices.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card right-block">
+        <div class="sec-label">Projects</div>
+
+        <div class="proj-item">
+          <div class="proj-name"><a href="https://github.com/auguxt/phishing-url-detector" target="_blank" rel="noopener">Phishing URL Detector</a></div>
+          <div class="proj-link">github.com/auguxt/phishing-url-detector</div>
+          <div class="proj-desc">ML-based Python model that classifies URLs as malicious or safe using feature extraction and supervised learning.</div>
+        </div>
+        <hr class="proj-div"/>
+        <div class="proj-item">
+          <div class="proj-name"><a href="https://github.com/auguxt/vt-telegram-bot" target="_blank" rel="noopener">VirusTotal Telegram Bot</a></div>
+          <div class="proj-link">github.com/auguxt/vt-telegram-bot</div>
+          <div class="proj-desc">Telegram bot integrating the VirusTotal API to scan URLs and files for threats on demand.</div>
+        </div>
+        <hr class="proj-div"/>
+        <div class="proj-item">
+          <div class="proj-name"><a href="https://github.com/auguxt/password-cracking-and-hashing" target="_blank" rel="noopener">Password Cracking &amp; Hashing</a></div>
+          <div class="proj-link">github.com/auguxt/password-cracking-and-hashing</div>
+          <div class="proj-desc">Explored brute-force and dictionary attack vectors; implemented bcrypt and SHA-based secure hashing techniques.</div>
+        </div>
+        <hr class="proj-div"/>
+        <div class="proj-item">
+          <div class="proj-name"><a href="https://github.com/auguxt/cryptography-algorithms" target="_blank" rel="noopener">Cryptography Algorithms</a></div>
+          <div class="proj-link">github.com/auguxt/cryptography-algorithms</div>
+          <div class="proj-desc">Implemented Caesar, Vigenère, RSA, and other classical encryption/decryption algorithms in Python.</div>
+        </div>
+        <hr class="proj-div"/>
+        <div class="proj-item">
+          <div class="proj-name"><a href="https://github.com/auguxt/Securing-User-Registration-Systems" target="_blank" rel="noopener">Securing User Registration Systems</a></div>
+          <div class="proj-link">github.com/auguxt/Securing-User-Registration-Systems</div>
+          <div class="proj-desc">Secure authentication prototype with input validation, password hashing, and SQL injection prevention.</div>
+        </div>
+        <hr class="proj-div"/>
+        <div class="proj-item">
+          <div class="proj-name"><a href="https://github.com/auguxt/Simple_Network_Sniffer" target="_blank" rel="noopener">Simple Network Sniffer</a></div>
+          <div class="proj-link">github.com/auguxt/Simple_Network_Sniffer</div>
+          <div class="proj-desc">Python/Scapy tool to capture, filter, and analyze live network packets in real time.</div>
+        </div>
+        <hr class="proj-div"/>
+        <div class="proj-item">
+          <div class="proj-name"><a href="https://github.com/auguxt/Easy-Guide-to-Avoiding-Phishing-Scams" target="_blank" rel="noopener">Easy Guide to Avoiding Phishing</a></div>
+          <div class="proj-link">github.com/auguxt/Easy-Guide-to-Avoiding-Phishing-Scams</div>
+          <div class="proj-desc">Educational resource documenting phishing tactics and practical prevention strategies for general users.</div>
+        </div>
+        <hr class="proj-div"/>
+        <div class="proj-item">
+          <div class="proj-name"><a href="https://auguxt.is-a.dev/wishcraft/" target="_blank" rel="noopener">WishCraft</a></div>
+          <div class="proj-link">auguxt.is-a.dev/wishcraft/</div>
+          <div class="proj-desc">Full-stack web app generating personalized birthday wish pages with shareable links and QR codes.</div>
+        </div>
+      </div>
+
+      <div class="card right-block">
+        <div class="sec-label">Certifications</div>
+
+        <div class="cert-cat">Cybersecurity</div>
+        <ul class="cert-list">
+          <li>Cisco NetAcad — Introduction to Cybersecurity</li>
+          <li>Cisco NetAcad — Cyber Threat Management</li>
+          <li>Cisco NetAcad — Network Support &amp; Security</li>
+          <li>Cisco NetAcad — Networking Basics</li>
+          <li>TATA Forage — Cybersecurity Analyst Job Simulation</li>
+          <li>LinkedIn Learning — Cybersecurity Foundations (×2)</li>
+          <li>Simplilearn SkillUp — Introduction to Cybersecurity (2025)</li>
+          <li>Cursa / Simplilearn — Cybersecurity</li>
+        </ul>
+
+        <div class="cert-cat">Programming &amp; Databases</div>
+        <ul class="cert-list">
+          <li>IBM — Introduction to Python (2024)</li>
+          <li>IIT Bombay — Python 3.4.3 (2024)</li>
+          <li>IIT Bombay — RDBMS with PostgreSQL</li>
+          <li>Cursa / CS50 — Databases with SQL</li>
+          <li>ThingQbator NASSCOM — HTML &amp; CSS</li>
+        </ul>
+
+        <div class="cert-cat">Data Science &amp; Machine Learning</div>
+        <ul class="cert-list">
+          <li>Simplilearn SkillUp — Machine Learning with R (2025)</li>
+          <li>Great Learning — Data Science Foundations (2024)</li>
+          <li>Cursa / MIT — Computational Thinking</li>
+        </ul>
+
+        <div class="cert-cat">Cloud, OS &amp; Automation (RPA)</div>
+        <ul class="cert-list">
+          <li>Cursa / UIUC — Cloud Computing</li>
+          <li>Cursa — Operating System Fundamentals</li>
+          <li>IIT Bombay — Linux (2025)</li>
+          <li>Automation Anywhere — Introduction to RPA (2024)</li>
+          <li>Automation Anywhere — Building RPA Bots (2024)</li>
+          <li>Automation Anywhere — Resilient Bots</li>
+          <li>Automation Anywhere — Universal Recorder</li>
+          <li>Automation Anywhere — Identifying Business Processes for RPA</li>
+        </ul>
+
+        <div class="cert-cat">IoT &amp; Emerging Technologies</div>
+        <ul class="cert-list">
+          <li>ThingQbator NASSCOM — Embedded Systems</li>
+          <li>ThingQbator NASSCOM — Blockchain &amp; IoT</li>
+          <li>NCVET / ASDC — Electric Vehicle Technology</li>
+        </ul>
+
+        <div class="cert-cat">Other</div>
+        <ul class="cert-list">
+          <li>OpenLearn (Open University, UK) — Climate Psychology (2025)</li>
+          <li>Marketing Badge — Free-to-Paid Conversion</li>
+          <li>TN DTE — Typewriting English (2022)</li>
+          <li>MOI — Swachh Bharat Seva (2023)</li>
+        </ul>
+
+        <a href="https://drive.google.com/drive/folders/1RB2iLHqzvsfokXb35whjumrMjJa8xS3G?usp=sharing"
+           target="_blank" rel="noopener" class="cert-more">📂 View all certificates on Google Drive →</a>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script>
+(function(){
+  const canvas=document.getElementById('star-bg');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let dpr=Math.max(1,window.devicePixelRatio||1),stars=[],raf=null;
+  const reduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function resize(){
+    dpr=Math.max(1,window.devicePixelRatio||1);
+    canvas.style.width=window.innerWidth+'px';
+    canvas.style.height=window.innerHeight+'px';
+    canvas.width=Math.floor(window.innerWidth*dpr);
+    canvas.height=Math.floor(window.innerHeight*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    const n=reduced?40:170,w=canvas.width/dpr,h=canvas.height/dpr;
+    stars=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.4+.2,s:Math.random()*1.3+.25}));
+  }
+  function tick(){
+    const w=canvas.width/dpr,h=canvas.height/dpr;
+    ctx.clearRect(0,0,w,h);ctx.fillStyle='#fff';
+    for(const s of stars){ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();if(!reduced){s.y+=s.s;if(s.y>h)s.y=0;}}
+    raf=requestAnimationFrame(tick);
+  }
+  resize();window.addEventListener('resize',resize);tick();
+  window.addEventListener('pagehide',()=>{if(raf)cancelAnimationFrame(raf);});
+  const logo=document.getElementById('logo-btn');
+  if(logo)logo.addEventListener('click',()=>{window.location.href='https://auguxt.is-a.dev';});
+})();
+</script>
+</body>
+</html>
